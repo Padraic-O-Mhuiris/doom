@@ -45,3 +45,6 @@
 (setq ledger-post-account-alignment-column 2)
 
 (setq all-the-icons-scale-factor 1.1)
+
+(setq epg-pinentry-mode 'loopback)
+(pinentry-start)
