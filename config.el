@@ -46,6 +46,7 @@
 
 (setq all-the-icons-scale-factor 1.1)
 
+;; test
 (use-package! pinentry
         :init (setq epa-pinentry-mode `loopback)
                (pinentry-start))
