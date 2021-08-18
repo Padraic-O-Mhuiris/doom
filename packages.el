@@ -50,6 +50,7 @@
 ;(unpin! t)
 (package! haskell-mode)
 (package! lsp-haskell)
+(package! pinentry)
 
 (unpin! org-roam)
 (package! org-roam
