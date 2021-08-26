@@ -14,7 +14,7 @@
 (setq doom-font (font-spec :family "Iosevka" :size 14 :slant 'normal :weight 'normal))
 (setq doom-big-font (font-spec :family "Iosevka" :size 24))
 
-(setq doom-theme 'doom-moonlight)
+(setq doom-theme 'doom-nord-light)
 
 (setq auto-save-default t)
 
