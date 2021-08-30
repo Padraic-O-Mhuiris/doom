@@ -151,6 +151,7 @@
         +roam2
         +journal
         +pretty
+        +noter
         +jupyter        ; ipython/jupyter support for babel
         +pandoc          ; export-with-pandoc support
         +pomodoro        ; be fruitful with the tomato technique

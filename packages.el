@@ -55,3 +55,5 @@
 (unpin! org-roam)
 (package! org-roam
   :recipe (:host github :repo "org-roam/org-roam"))
+
+(package! pdf-tools :built-in 'prefer)

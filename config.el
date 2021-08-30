@@ -36,6 +36,8 @@
 (setq org-roam-db-location "~/.org/org-roam.db")
 (setq org-roam-v2-ack t)
 (setq org-agenda-files '("~/.org"))
+(setq org-noter-always-create-frame nil)
+
 
 (setq org-archive-location "~/.org/archive/%s_archive::* Archived Tasks")
 
@@ -51,3 +53,4 @@
 ;;                (pinentry-start))
 ;;
 ;;
+(setq solidity-flycheck-solc-checker-active t)
