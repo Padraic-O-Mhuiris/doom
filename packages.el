@@ -52,8 +52,13 @@
 (package! lsp-haskell)
 (package! pinentry)
 
-(unpin! org-roam)
-(package! org-roam
-  :recipe (:host github :repo "org-roam/org-roam"))
-
 (package! pdf-tools :built-in 'prefer)
+
+(package! org-roam-bibtex
+  :recipe (:host github :repo "org-roam/org-roam-bibtex"))
+
+;; When using org-roam via the `+roam` flag
+(unpin! org-roam)
+
+;; When using bibtex-completion via the `biblio` module
+(unpin! bibtex-completion helm-bibtex ivy-bibtex)
