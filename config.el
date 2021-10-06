@@ -16,14 +16,12 @@
 
 (setq display-line-numbers-type t)
 
-(setq doom-font (font-spec :family "Iosevka" :size 14 :slant 'normal :weight 'normal))
+(setq doom-font (font-spec :family "Iosevka" :size 16 :slant 'normal :weight 'normal))
 (setq doom-big-font (font-spec :family "Iosevka" :size 24))
 
-(setq doom-theme 'doom-nord-light)
+(setq doom-theme 'doom-nord)
 
 (setq auto-save-default t)
-
-(setq haskell-stylish-on-save t)
 
 (setq tab-width 2)
 (setq standard-indent 2)
@@ -35,6 +33,10 @@
 (setq-hook! js2-mode-hook js-indent-level 2)
 (setq-hook! typescript-mode-hook typescript-indent-level 2)
 (setq-hook! typescript-tsx-mode-hook web-mode-code-indent-offset 2)
+
+;;Haskell
+(after!
+  (setq lsp-haskell-formatting-provider "ormolu"))
 
 
 ;; Org
@@ -140,3 +142,8 @@
 ;;
 ;;
 (setq solidity-flycheck-solc-checker-active t)
+
+(setq beancount-number-alignment-column 100)
+(setq beancount-account-chars 60)
+
+(add-hook 'beancount-mode-hook #'outline-minor-mode)
