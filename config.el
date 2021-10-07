@@ -3,7 +3,6 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
-
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Patrick Morris"
@@ -129,18 +128,10 @@
 
 (setq org-archive-location "~/.org/archive/%s_archive::* Archived Tasks")
 
-(setq org-download-image-dir "~/.org/images")
-
 (setq ledger-post-amount-alignment-column 100)
 (setq ledger-post-account-alignment-column 2)
 
 (setq all-the-icons-scale-factor 1.1)
-
-;; (use-package! pinentry
-;;         :init (setq epa-pinentry-mode `loopback)
-;;                (pinentry-start))
-;;
-;;
 (setq solidity-flycheck-solc-checker-active t)
 
 (setq beancount-number-alignment-column 100)
