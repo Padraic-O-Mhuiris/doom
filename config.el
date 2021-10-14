@@ -15,8 +15,19 @@
 
 (setq display-line-numbers-type t)
 
-(setq doom-font (font-spec :family "Iosevka" :size 16 :slant 'normal :weight 'normal))
-(setq doom-big-font (font-spec :family "Iosevka" :size 24))
+(defun pm/font-size ()
+  ""
+  (cond ((string= (system-name) "Hydrogen") 24)
+        (t 16)))
+
+(defun pm/big-font-size ()
+  ""
+  (cond ((string= (system-name) "Hydrogen") 32)
+        (t 24)))
+
+
+(setq doom-font (font-spec :family "Iosevka" :size (pm/font-size) :slant 'normal :weight 'normal))
+(setq doom-big-font (font-spec :family "Iosevka" :size (pm/big-font-size)))
 
 (setq doom-theme 'doom-nord)
 
