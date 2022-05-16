@@ -8,11 +8,6 @@
 (setq user-full-name "Patrick Morris"
       user-mail-address "patrick.morris.310@gmail.com")
 
-(use-package! org-roam-bibtex
-  :after org-roam
-  :config
-  (require 'org-ref))
-
 (setq display-line-numbers-type t)
 
 (defun pm/font-size ()
@@ -29,7 +24,7 @@
 (setq doom-font (font-spec :family "Iosevka" :size (pm/font-size) :slant 'normal :weight 'normal))
 (setq doom-big-font (font-spec :family "Iosevka" :size (pm/big-font-size)))
 
-(setq doom-theme 'doom-nord)
+(setq doom-theme 'doom-city-lights)
 
 (setq auto-save-default t)
 
@@ -45,8 +40,9 @@
 (setq-hook! typescript-tsx-mode-hook web-mode-code-indent-offset 2)
 
 ;;Haskell
-(after!
-  (setq lsp-haskell-formatting-provider "ormolu"))
+(after! haskell
+  (setq lsp-haskell-formatting-provider "ormolu")
+  (setq haskell-interactive-popup-errors nil))
 
 
 ;; Org
@@ -66,16 +62,6 @@
 (setq org-noter-default-notes-file-names '("notes.org")
       org-noter-notes-search-path '("~/.org/literature")
       org-noter-separate-notes-from-heading t)
-
-(setq reftex-default-bibliography '("~/.org/literature/library.bib"))
-
-(setq org-ref-bibliography-notes  '("~/.org/literature/notes.org")
-      org-ref-default-bibliography '("~/.org/literature/library.bib")
-      org-ref-pdf-directory '("~/.org/literature/pdfs/"))
-
-(setq bibtex-completion-bibliography "~/.org/literature/library.bib"
-      bibtex-completion-library-path "~/.org/literature/pdfs"
-      bibtex-completion-notes-path "~/.org/literature")
 
 (setq orb-preformat-keywords
       '(("citekey" . "=key=") "title" "cover" "url" "tags" "date" "abstract" "year" "journal" "note" "volume" "pages" "doi" "isbn" "issn" "publisher" "file" "author-or-editor" "keywords")
@@ -138,6 +124,10 @@
                             "#+TITLE: %<%Y-%m-%d>\n#+CREATED: %U\n#+LAST_MODIFIED: %U\n#+FILETAGS: :daily:\n"))))
 
 (setq org-archive-location "~/.org/archive/%s_archive::* Archived Tasks")
+
+(setq org-download-screenshot-method  "flameshot gui --raw > %s")
+(setq org-noter-always-create-frame nil)
+
 
 (setq ledger-post-amount-alignment-column 100)
 (setq ledger-post-account-alignment-column 2)
