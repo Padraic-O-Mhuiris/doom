@@ -31,9 +31,6 @@
 (setq tab-width 2)
 (setq standard-indent 2)
 
-;;(setq org-todo-keywords
-;;      '((sequence "TODO" "FEEDBACK" "VERIFY" "|" "DONE" "DELEGATED")))
-
 ;; Javascript settings
 (setq-hook! js2-mode-hook js-indent-level 2)
 (setq-hook! typescript-mode-hook typescript-indent-level 2)
@@ -63,13 +60,6 @@
       org-noter-notes-search-path '("~/.org/literature")
       org-noter-separate-notes-from-heading t)
 
-(setq orb-preformat-keywords
-      '(("citekey" . "=key=") "title" "cover" "url" "tags" "date" "abstract" "year" "journal" "note" "volume" "pages" "doi" "isbn" "issn" "publisher" "file" "author-or-editor" "keywords")
-      orb-process-file-field t
-      orb-process-file-keyword t
-      orb-file-field-extensions '("pdf"))
-
-
 (after! org
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 0.9))
   (setq org-capture-templates
@@ -97,7 +87,6 @@
          (file+head "literature/book/${citekey}.org"
                     "#+TITLE: ${title}\n")
          :unnarrowed t)
-
         ;; project
         ("p" "project" plain
          (file "~/.org/templates/project.org")
@@ -105,7 +94,6 @@
          (file+head "projects/${slug}.org"
                     "#+TITLE: ${title}\n")
          :unnarrowed t)
-
         ;; people
         ("j" "people" plain
          (file "~/.org/templates/people.org")
@@ -113,8 +101,6 @@
          (file+head "people/${slug}.org"
                     "#+TITLE: ${title}\n")
          :unnarrowed t)
-
-
         ))
 
 (setq org-roam-dailies-capture-templates
@@ -127,7 +113,6 @@
 
 (setq org-download-screenshot-method  "flameshot gui --raw > %s")
 (setq org-noter-always-create-frame nil)
-
 
 (setq ledger-post-amount-alignment-column 100)
 (setq ledger-post-account-alignment-column 2)
