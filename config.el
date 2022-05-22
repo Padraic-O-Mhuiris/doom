@@ -24,7 +24,7 @@
 (setq doom-font (font-spec :family "Iosevka" :size (pm/font-size) :slant 'normal :weight 'normal))
 (setq doom-big-font (font-spec :family "Iosevka" :size (pm/big-font-size)))
 
-(setq doom-theme 'doom-city-lights)
+(setq doom-theme 'doom-nord-light)
 
 (setq auto-save-default t)
 
@@ -47,7 +47,6 @@
 (setq org-roam-directory "~/.org")
 (setq org-roam-db-location "~/.org/org-roam.db")
 (setq org-roam-v2-ack t)
-(setq org-agenda-files '("~/.org"))
 
 (setq time-stamp-active t
       time-stamp-start "#\\+LAST_MODIFIED:[ \t]*"
@@ -56,63 +55,66 @@
 
 (add-hook 'before-save-hook 'time-stamp nil)
 
-(setq org-noter-default-notes-file-names '("notes.org")
-      org-noter-notes-search-path '("~/.org/literature")
-      org-noter-separate-notes-from-heading t)
-
 (after! org
-  (setq org-format-latex-options (plist-put org-format-latex-options :scale 0.9))
-  (setq org-capture-templates
-        '(
-          ;; inbox
-          ("i" "inbox" entry
-           (file "~/.org/inbox.org")
-           "* TODO %?\nSCHEDULED: %t")
-          )))
+  (setq org-hierarchical-todo-statistics t)
 
+  (setq org-todo-keywords
+      '((sequence "TODO" "IDEA" "GOAL" "PROJECT" "|" "DONE" "CANCELLED")))
 
-(setq org-roam-capture-templates
-      '(
-        ;; default
-        ("d" "default" plain
-         (file "~/.org/templates/default.org")
-         :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
-                            "#+TITLE: ${title}\n")
-         :unnarrowed t)
+  (setq org-format-latex-options (plist-put org-format-latex-options :scale 0.9)))
 
-        ;; book
-        ("b" "book" plain
-         (file "~/.org/templates/book.org")
-         :if-new
-         (file+head "literature/book/${citekey}.org"
-                    "#+TITLE: ${title}\n")
-         :unnarrowed t)
-        ;; project
-        ("p" "project" plain
-         (file "~/.org/templates/project.org")
-         :if-new
-         (file+head "projects/${slug}.org"
-                    "#+TITLE: ${title}\n")
-         :unnarrowed t)
-        ;; people
-        ("j" "people" plain
-         (file "~/.org/templates/people.org")
-         :if-new
-         (file+head "people/${slug}.org"
-                    "#+TITLE: ${title}\n")
-         :unnarrowed t)
-        ))
+(after! evil-org-agenda
+  (setq org-agenda-files (directory-files-recursively "~/.org/" "\\.org$")))
 
-(setq org-roam-dailies-capture-templates
-      '(("d" "daily" plain
-         "%?"
-         :target (file+head "%<%Y-%m-%d>.org"
-                            "#+TITLE: %<%Y-%m-%d>\n#+CREATED: %U\n#+LAST_MODIFIED: %U\n#+FILETAGS: :daily:\n"))))
+;; (setq org-capture-templates
+;;       '(
+;;         ;; inbox
+;;         ("i" "inbox" entry
+;;          (file "~/.org/inbox.org")
+;;          "* TODO %?\nSCHEDULED: %t")
+;;         )))
+
+;;(setq org-roam-capture-templates
+;;       '(
+;;         ;; default
+;;         ("d" "default" plain
+;;          (file "~/.org/templates/default.org")
+;;          :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
+;;                             "#+TITLE: ${title}\n")
+;;          :unnarrowed t)
+
+;;         ;; book
+;;         ("b" "book" plain
+;;          (file "~/.org/templates/book.org")
+;;          :if-new
+;;          (file+head "literature/book/${citekey}.org"
+;;                     "#+TITLE: ${title}\n")
+;;          :unnarrowed t)
+;;         ;; project
+;;         ("p" "project" plain
+;;          (file "~/.org/templates/project.org")
+;;          :if-new
+;;          (file+head "projects/${slug}.org"
+;;                     "#+TITLE: ${title}\n")
+;;          :unnarrowed t)
+;;         ;; people
+;;         ("j" "people" plain
+;;          (file "~/.org/templates/people.org")
+;;          :if-new
+;;          (file+head "people/${slug}.org"
+;;                     "#+TITLE: ${title}\n")
+;;          :unnarrowed t)
+;;         ))
+
+;; (setq org-roam-dailies-capture-templates
+;;       '(("d" "daily" plain
+;;          "%?"
+;;          :target (file+head "%<%Y-%m-%d>.org"
+;;                             "#+TITLE: %<%Y-%m-%d>\n#+CREATED: %U\n#+LAST_MODIFIED: %U\n#+FILETAGS: :daily:\n"))))
 
 (setq org-archive-location "~/.org/archive/%s_archive::* Archived Tasks")
 
 (setq org-download-screenshot-method  "flameshot gui --raw > %s")
-(setq org-noter-always-create-frame nil)
 
 (setq ledger-post-amount-alignment-column 100)
 (setq ledger-post-account-alignment-column 2)
