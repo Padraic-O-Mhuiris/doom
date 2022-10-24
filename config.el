@@ -66,52 +66,6 @@
 (after! evil-org-agenda
   (setq org-agenda-files (directory-files-recursively "~/.org/" "\\.org$")))
 
-;; (setq org-capture-templates
-;;       '(
-;;         ;; inbox
-;;         ("i" "inbox" entry
-;;          (file "~/.org/inbox.org")
-;;          "* TODO %?\nSCHEDULED: %t")
-;;         )))
-
-;;(setq org-roam-capture-templates
-;;       '(
-;;         ;; default
-;;         ("d" "default" plain
-;;          (file "~/.org/templates/default.org")
-;;          :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
-;;                             "#+TITLE: ${title}\n")
-;;          :unnarrowed t)
-
-;;         ;; book
-;;         ("b" "book" plain
-;;          (file "~/.org/templates/book.org")
-;;          :if-new
-;;          (file+head "literature/book/${citekey}.org"
-;;                     "#+TITLE: ${title}\n")
-;;          :unnarrowed t)
-;;         ;; project
-;;         ("p" "project" plain
-;;          (file "~/.org/templates/project.org")
-;;          :if-new
-;;          (file+head "projects/${slug}.org"
-;;                     "#+TITLE: ${title}\n")
-;;          :unnarrowed t)
-;;         ;; people
-;;         ("j" "people" plain
-;;          (file "~/.org/templates/people.org")
-;;          :if-new
-;;          (file+head "people/${slug}.org"
-;;                     "#+TITLE: ${title}\n")
-;;          :unnarrowed t)
-;;         ))
-
-;; (setq org-roam-dailies-capture-templates
-;;       '(("d" "daily" plain
-;;          "%?"
-;;          :target (file+head "%<%Y-%m-%d>.org"
-;;                             "#+TITLE: %<%Y-%m-%d>\n#+CREATED: %U\n#+LAST_MODIFIED: %U\n#+FILETAGS: :daily:\n"))))
-
 (setq org-archive-location "~/.org/archive/%s_archive::* Archived Tasks")
 
 (setq org-download-screenshot-method  "flameshot gui --raw > %s")
