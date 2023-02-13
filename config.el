@@ -12,7 +12,7 @@
 
 (defun pm/font-size ()
   ""
-  (cond ((string= (system-name) "Hydrogen") 24)
+  (cond ((string= (system-name) "Hydrogen") 28)
         (t 16)))
 
 (defun pm/big-font-size ()
@@ -24,7 +24,7 @@
 (setq doom-font (font-spec :family "Iosevka" :size (pm/font-size) :slant 'normal :weight 'normal))
 (setq doom-big-font (font-spec :family "Iosevka" :size (pm/big-font-size)))
 
-(setq doom-theme 'doom-nord-light)
+(setq doom-theme 'doom-tokyo-night)
 
 (setq auto-save-default t)
 
@@ -61,10 +61,13 @@
   (setq org-todo-keywords
       '((sequence "TODO" "IDEA" "GOAL" "PROJECT" "|" "DONE" "CANCELLED")))
 
-  (setq org-format-latex-options (plist-put org-format-latex-options :scale 0.9)))
+  (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0)))
 
 (after! evil-org-agenda
   (setq org-agenda-files (directory-files-recursively "~/.org/" "\\.org$")))
+
+=======
+(setq flycheck-solidity-solium-soliumrcfile "$SOLHINT_PATH")
 
 (setq org-archive-location "~/.org/archive/%s_archive::* Archived Tasks")
 
