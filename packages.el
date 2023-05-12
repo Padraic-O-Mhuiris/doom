@@ -1,2 +1,6 @@
-(package! transient :pin "c2bdf7e12c530eb85476d3aef317eb2941ab9440")
-(package! with-editor :pin "391e76a256aeec6b9e4cbd733088f30c677d965b")
+(package! code-review :recipe (:files ("graphql" "code-review*.el"))
+  :pin "26f426e99221a1f9356aabf874513e9105b68140")
+    ; HACK closql c3b34a6 breaks code-review wandersoncferreira/code-review#245,
+    ; and the current forge commit (but forge does have an upstream fix),
+    ; pinned as a temporary measure to prevent user breakages
+(package! closql :pin "0a7226331ff1f96142199915c0ac7940bac4afdd")
