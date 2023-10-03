@@ -12,6 +12,18 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
+(after! org
+  (setq org-directory "~/notes")
+  (setq org-roam-directory "~/notes")
+  (setq org-agenda-files (directory-files-recursively "~/notes/" "\\.org$"))
+  (setq org-roam-dailies-directory "/dailies")
+  (setq time-stamp-active t)
+  (setq time-stamp-start "#\\+LAST_MODIFIED:[ \t]")
+  (setq time-stamp-end "$")
+  (setq time-stamp-format "\[%Y-%m-%d %a %H:%M:%S\]")
+
+  (add-hook 'before-save-hook 'time-stamp nil))
+
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 ;;(setq org-directory "~/org/")
