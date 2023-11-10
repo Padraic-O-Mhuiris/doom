@@ -72,7 +72,7 @@
        dired             ; making dired pretty [functional]
        electric          ; smarter, keyword-based electric-indent
        ;;ibuffer         ; interactive buffer management
-       undo              ; persistent, smarter undo for your inevitable mistakes
+       (undo +tree)              ; persistent, smarter undo for your inevitable mistakes
        vc                ; version-control and Emacs, sitting in a tree
 
        :term
@@ -83,7 +83,7 @@
 
        :checkers
        (syntax +childframe +flymake) ; tasing you for every semicolon you forget
-       (spell +flyspell +aspell +everywhere) ; tasing you for misspelling mispelling
+       (spell +aspell +everywhere) ; tasing you for misspelling mispelling
        grammar                          ; tasing grammar mistake every you make
 
        :tools
@@ -154,7 +154,7 @@
        ;;lua               ; one-based indices? one-based indices
        markdown            ; writing docs for people to ignore
        ;;nim               ; python + lisp at the speed of c
-       (nix +tree-sitter)               ; I hereby declare "nix geht mehr!"
+       (nix +lsp +tree-sitter)               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
        (org +dragndrop +journal +pretty +roam2) ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
