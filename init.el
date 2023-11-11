@@ -72,7 +72,7 @@
        dired             ; making dired pretty [functional]
        electric          ; smarter, keyword-based electric-indent
        ;;ibuffer         ; interactive buffer management
-       (undo +tree)              ; persistent, smarter undo for your inevitable mistakes
+       (undo +tree)      ; persistent, smarter undo for your inevitable mistakes
        vc                ; version-control and Emacs, sitting in a tree
 
        :term
@@ -83,8 +83,8 @@
 
        :checkers
        (syntax +childframe +flymake) ; tasing you for every semicolon you forget
-       (spell +aspell) ; tasing you for misspelling mispelling
-       grammar                          ; tasing grammar mistake every you make
+       (spell +aspell)               ; tasing you for misspelling mispelling
+       grammar                       ; tasing grammar mistake every you make
 
        :tools
        ;;ansible
@@ -98,7 +98,7 @@
        (eval +overlay)       ; run code, run (also, repls)
        ;;gist              ; interacting with github gists
        (lookup +dictionary +offline)  ; navigate your code and its documentation
-       (lsp +peek)                            ; M-x vscode
+       (lsp +peek)                    ; M-x vscode
        magit                          ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        (pass +auth)                     ; password manager for nerds
@@ -118,7 +118,7 @@
        :lang
        ;;agda              ; types of types of types of types...
        (beancount +lsp)                 ; mind the GAAP
-       (cc +lsp +tree-sitter)         ; C > C++ == 1
+       (cc +lsp +tree-sitter)           ; C > C++ == 1
        ;;clojure           ; java with a lisp
        ;;common-lisp       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
@@ -138,7 +138,7 @@
        ;;fsharp            ; ML stands for Microsoft's Language
        ;;fstar             ; (dependent) types and (monadic) effects and Z3
        ;;gdscript          ; the language you waited for
-       (go +lsp)         ; the hipster dialect
+       (go +lsp)  ; the hipster dialect
        ;;(graphql +lsp)    ; Give queries a REST
        ;;(haskell +lsp)    ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
@@ -154,7 +154,7 @@
        ;;lua               ; one-based indices? one-based indices
        markdown            ; writing docs for people to ignore
        ;;nim               ; python + lisp at the speed of c
-       (nix +lsp +tree-sitter)               ; I hereby declare "nix geht mehr!"
+       (nix +lsp +tree-sitter)          ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
        (org +dragndrop +journal +pretty +roam2) ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
@@ -194,4 +194,7 @@
 
        :config
        ;;literate
-       (default +bindings +smartparens))
+       (default +bindings +smartparens)
+
+       :pm
+       org)

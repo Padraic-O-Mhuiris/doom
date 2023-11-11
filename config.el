@@ -2,7 +2,7 @@
       user-mail-address "patrick.morris.310@gmail.com")
 
 (defvar pm/font-size (if (string= (system-name) "Oxygen")
-                         16
+                         14
                        24))
 
 (setq doom-font (font-spec :family "Iosevka Comfy Fixed" :size pm/font-size)
@@ -11,3 +11,6 @@
       doom-variable-pitch-font (font-spec :family "Iosevka Comfy Fixed"))
 
 (setq doom-theme 'doom-nord-aurora)
+
+(setq doom-modeline-height 55)
+
