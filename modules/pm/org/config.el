@@ -58,7 +58,6 @@
   (add-hook! 'before-save-hook #'time-stamp)
   (add-hook 'org-after-todo-state-change-hook 'pm/org-insert-created-timestamp-on-doom-insert-h)
 
-
   (advice-add 'org-insert-todo-heading :after 'pm/run-org-insert-todo-heading-hook)
   (advice-add 'org-insert-todo-heading-respect-content :after 'pm/run-org-insert-todo-heading-hook)
   (advice-add 'org-insert-todo-subheading :after  'pm/run-org-insert-todo-heading-hook))

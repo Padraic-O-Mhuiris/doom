@@ -197,4 +197,5 @@
        (default +bindings +smartparens)
 
        :pm
-       org)
+       org
+       notes)
