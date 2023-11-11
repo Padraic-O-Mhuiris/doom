@@ -196,6 +196,4 @@
        ;;literate
        (default +bindings +smartparens)
 
-       :pm
-       org
-       notes)
+       :pm (pm +org +notes))
