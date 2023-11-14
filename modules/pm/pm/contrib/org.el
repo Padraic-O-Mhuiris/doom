@@ -60,4 +60,20 @@
 
   (advice-add 'org-insert-todo-heading :after 'pm/run-org-insert-todo-heading-hook)
   (advice-add 'org-insert-todo-heading-respect-content :after 'pm/run-org-insert-todo-heading-hook)
-  (advice-add 'org-insert-todo-subheading :after  'pm/run-org-insert-todo-heading-hook))
+  (advice-add 'org-insert-todo-subheading :after  'pm/run-org-insert-todo-heading-hook)
+
+  (+org-enable-auto-reformat-tables-h)
+  (+org-enable-auto-update-cookies-h)
+
+  (defun org-summary-todo (n-done n-not-done)
+    "Switch entry to DONE when all subentries are done, to TODO otherwise."
+    (let (org-log-done org-todo-log-states)   ; turn off logging
+      (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
+
+  (add-hook 'org-after-todo-statistics-hook #'org-summary-todo))
+
+(after! evil-org
+  (remove-hook 'org-tab-first-hook #'+org-cycle-only-current-subtree-h))
+
+;; unbind all notes
+(map! :leader :after evil :desc "swsw" "n" nil)
