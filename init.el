@@ -83,7 +83,7 @@
 
        :checkers
        (syntax +childframe +flymake) ; tasing you for every semicolon you forget
-       (spell +aspell)               ; tasing you for misspelling mispelling
+       (spell +aspell +flyspell)               ; tasing you for misspelling mispelling
        grammar                       ; tasing grammar mistake every you make
 
        :tools
@@ -156,7 +156,7 @@
        ;;nim               ; python + lisp at the speed of c
        (nix +lsp +tree-sitter)          ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
-       (org +dragndrop +journal +pretty +roam2) ; organize your plain life in plain text
+       (org +dragndrop +pretty +roam2 +noter +present) ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
