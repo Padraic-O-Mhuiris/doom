@@ -197,4 +197,4 @@
        (default +bindings +smartparens)
 
        :pm
-       (pm +org +notes))
+       pkms)
