@@ -17,10 +17,20 @@
   (setq lsp-ui-doc-position 'bottom)
   (setq lsp-ui-doc-show-with-cursor t)
   (setq lsp-ui-doc-show-with-mouse t)
-  (setq lsp-ui-doc-max-height 30)
+  (setq lsp-ui-doc-max-height 30))
 
-  (setq lsp-ui-sideline-enable t)
-  (setq lsp-ui-sideline-show-hover t)
-  (setq lsp-ui-sideline-show-diagnostics t)
-  (setq lsp-ui-sideline-show-code-actions t)
-  (setq lsp-ui-sideline-delay 0.5))
+;; (setq lsp-ui-sideline-enable t)
+;; (setq lsp-ui-sideline-show-hover t)
+;; (setq lsp-ui-sideline-show-diagnostics nil)
+;; (setq lsp-ui-sideline-show-code-actions t)
+;; (setq lsp-ui-sideline-delay 0.5))
+
+
+;;; https://github.com/doomemacs/doomemacs/issues/7514
+(defun apheleia-inhibit-me ()
+  (setq apheleia-inhibit t))
+
+(after! rustic
+  (add-hook 'rustic-mode-hook 'apheleia-inhibit-me)
+  (setq rustic-format-trigger 'on-save
+        rustic-format-on-save-method #'lsp-format-buffer))
