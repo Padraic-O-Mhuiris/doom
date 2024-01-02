@@ -2,7 +2,9 @@
 
 ;;;###autoload
 (cl-defun pm/url-from-clipboard (callback)
-  (let ((url (org-cliplink-clipboard-content)))
+  (let ((url
+         (substring-no-properties
+          (gui-get-selection 'CLIPBOARD))))
     (if (url-type (url-generic-parse-url url))
         (org-cliplink-retrieve-title
          url
