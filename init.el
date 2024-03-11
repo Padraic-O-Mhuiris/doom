@@ -194,7 +194,4 @@
 
        :config
        ;;literate
-       (default +bindings +smartparens)
-
-       :pm
-       pkms)
+       (default +bindings +smartparens))
