@@ -34,3 +34,7 @@
   (add-hook 'rustic-mode-hook 'apheleia-inhibit-me)
   (setq rustic-format-trigger 'on-save
         rustic-format-on-save-method #'lsp-format-buffer))
+
+(after! solidity-mode
+  (setq apheleia-formatters (delq (assoc 'prettier-solidity apheleia-formatters) apheleia-formatters)))
+;; (set-formatter! 'solidityfmt '("forge" "fmt") :modes '(solidity-mode)))
