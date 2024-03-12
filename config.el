@@ -38,3 +38,55 @@
 (after! solidity-mode
   (setq apheleia-formatters (delq (assoc 'prettier-solidity apheleia-formatters) apheleia-formatters)))
 ;; (set-formatter! 'solidityfmt '("forge" "fmt") :modes '(solidity-mode)))
+
+(after! org
+  (setopt time-stamp-active t
+          time-stamp-start "#\\+last_modified:[ \t]"
+          time-stamp-end "$"
+          time-stamp-format (org-time-stamp-format 'long 'inactive)
+
+          org-directory "~/notes"
+
+          org-log-done 'note
+          org-log-into-drawer t
+          org-enforce-todo-dependencies t
+          org-enforce-todo-checkbox-dependencies t
+
+          org-directory "~/notes"
+
+          org-todo-keywords '((sequence
+                               "TODO(t)" ;; A task that needs doing and is ready to do
+                               "PROG(p!)" ;; A task that is in progress
+                               "NEXT(n!)" ;; A task which should be done next
+                               "WAIT(w@/!)" ;; A task which is held up for an external reason
+                               "HOLD(h@/!)" ;; A task which is paused
+                               "|"          ;;
+                               "DONE(d!)"   ;; When a task is completed
+                               "KILL(k@/!)" ;; When a task is rejected
+                               "FAIL(f@/!)") ;; When a task is failed
+
+                              (sequence
+                               "NOTE" ;; Not necessary for agenda, just for highlighting in places
+                               "LINK" ;; A naked url which is to be changed to a link note
+                               "IDEA" ;; A piece of information which might manifest into something
+                               "|")))
+  (setopt
+   org-roam-directory org-directory
+   org-roam-dailies-directory "daily/"
+   org-roam-database-connector 'sqlite-builtin)
+
+  (org-roam-db-autosync-mode)
+
+  (add-hook! 'org-after-todo-state-change-hook
+    (lambda ()
+      (when (not (org-entry-get nil "CREATED"))
+        (org-set-property "CREATED" (format-time-string time-stamp-format (org-current-time))))))
+
+  (add-hook! 'before-save-hook #'time-stamp)
+
+  (+org-enable-auto-reformat-tables-h)
+  (+org-enable-auto-update-cookies-h)
+
+  (add-hook 'org-after-todo-statistics-hook #'org-summary-todo)
+  ;; Weird bug
+  (remove-hook! 'org-fold-reveal-start-hook #'org-decrypt-entry))
