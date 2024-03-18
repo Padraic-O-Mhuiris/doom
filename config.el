@@ -70,6 +70,8 @@
                                "LINK" ;; A naked url which is to be changed to a link note
                                "IDEA" ;; A piece of information which might manifest into something
                                "|")))
+  (setopt org-agenda-files (directory-files-recursively "~/notes" org-agenda-file-regexp))
+
   (setopt
    org-roam-directory org-directory
    org-roam-dailies-directory "daily/"
