@@ -10,7 +10,7 @@
       doom-unicode-font (font-spec :family "Iosevka Comfy Fixed")
       doom-variable-pitch-font (font-spec :family "Iosevka Comfy Fixed"))
 
-(setq doom-theme 'doom-nord-aurora)
+(setq doom-theme 'doom-feather-light)
 
 (after! lsp-ui
   (setq lsp-ui-doc-enable t)
@@ -57,6 +57,7 @@
           org-todo-keywords '((sequence
                                "TODO(t)" ;; A task that needs doing and is ready to do
                                "PROG(p!)" ;; A task that is in progress
+                               "READ(r!)" ;; A task to read something
                                "NEXT(n!)" ;; A task which should be done next
                                "WAIT(w@/!)" ;; A task which is held up for an external reason
                                "HOLD(h@/!)" ;; A task which is paused
