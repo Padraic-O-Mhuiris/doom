@@ -35,8 +35,8 @@
   (setq rustic-format-trigger 'on-save
         rustic-format-on-save-method #'lsp-format-buffer))
 
-(after! solidity-mode
-  (setq apheleia-formatters (delq (assoc 'prettier-solidity apheleia-formatters) apheleia-formatters)))
+;; (after! solidity-mode
+;;   (setq apheleia-formatters (delq (assoc 'prettier-solidity apheleia-formatters) apheleia-formatters)))
 ;; (set-formatter! 'solidityfmt '("forge" "fmt") :modes '(solidity-mode)))
 
 (after! org
@@ -86,9 +86,6 @@
         (org-set-property "CREATED" (format-time-string time-stamp-format (org-current-time))))))
 
   (add-hook! 'before-save-hook #'time-stamp)
-
-  (+org-enable-auto-reformat-tables-h)
-  (+org-enable-auto-update-cookies-h)
 
   (add-hook 'org-after-todo-statistics-hook #'org-summary-todo)
   ;; Weird bug
